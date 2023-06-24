@@ -27,8 +27,8 @@ RUN mkdir -p /opt/tabby/bin
 RUN mkdir -p /opt/tabby/lib
 RUN mkdir -p target
 
-RUN --mount=type=cache,id=/usr/local/cargo/registry \
-    --mount=type=cache,id=/root/workspace/target \
+RUN --mount=type=cache,id=0001 \
+    --mount=type=cache,id=0002 \
     cargo build --features link_shared --release && \
     cp target/release/tabby /opt/tabby/bin/
 
